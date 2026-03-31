@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-  baseURL: "https://endearing-art-production-2419.up.railway.app",
+  baseURL: 'https://endearing-art-production-2419.up.railway.app',
   headers: { 'Content-Type': 'application/json' },
   timeout: 10000,
 })
@@ -10,10 +10,10 @@ api.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.code === 'ECONNABORTED') {
-      throw new Error('Request timed out. Is the backend running? 🤔')
+      throw new Error('Request timed out.')
     }
     if (!error.response) {
-      throw new Error('Cannot reach server. Start your Spring Boot app on :8080 🚀')
+      throw new Error('Cannot reach server.')
     }
     const msg = error.response?.data?.message || error.response?.statusText || 'Something went wrong'
     throw new Error(msg)
@@ -21,9 +21,9 @@ api.interceptors.response.use(
 )
 
 export const journalApi = {
-  getAll: () => api.get(''),
-  getById: (id) => api.get(`/id/${id}`),
-  create: (data) => api.post('', data),
-  update: (id, data) => api.put(`/id/${id}`, data),
-  delete: (id) => api.delete(`/id/${id}`),
+  getAll: () => api.get('/journal'),
+  getById: (id) => api.get(`/journal/id/${id}`),
+  create: (data) => api.post('/journal', data),
+  update: (id, data) => api.put(`/journal/id/${id}`, data),
+  delete: (id) => api.delete(`/journal/id/${id}`),
 }
