@@ -31,3 +31,7 @@ build/
 
 ### VS Code ###
 .vscode/
+### React Frontend ###
+journal-app/journal-app/node_modules/
+journal-app/journal-app/dist/
+journal-app/journal-app/.env

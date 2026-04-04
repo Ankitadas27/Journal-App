@@ -1,0 +1,4 @@
+node_modules/ 
+journal-app/journal-app/node_modules/ 
+journal-app/journal-app/dist/ 
+.env 
